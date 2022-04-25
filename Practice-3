@@ -1,0 +1,47 @@
+
+create table Emp_Detail( EId int ,
+Ename varchar(50),
+salary int,
+Mobile varchar(15), 
+Job varchar(25), 
+Compony Varchar(25), 
+Deptno int);
+
+Insert into Emp_Detail(EId ,Ename,Salary ,Mobile,Job,Compony,Deptno)
+values(101,'Ankit Kumar',18000,',635796422','Manager','SCOTT',10),
+(102,'Amrit Kuar',9000,'6110079645','Manager','BLAKE',20), 
+(103,'Ansh Kumar',10000,'7135790004','Salesman','KING',30), 
+(104,'Chandan Kumar',12000,'7063579600','Clerk','FORD',10), 
+(105,'Chhavi Kumari',13000,'7660019645','Manager','Survey Management',40), 
+(106,'Deepak Kumar',14000,'8062009645','HR','HR Management',40), 
+(108,'Harshit Kumar',15000,'9061000645','Assistant Mananger' ,'Survey Management',30),
+(109,'Muskan Sagar',16000,'9860106456','Project Mananger' ,'Task Management',20),
+(111,'Rahul Kumar',18000,',635796422','Manager','SCOTT',10),
+(112,'Rahul Kumar',19000,',635790422','Assitant Manager','SCOTT',10),
+(113,'Sonu Kumar',21000,',635790402','Assitant Manager','FORD',40),
+(112,'Rahul Kumar',19000,',635790422','Assitant Manager','SCOTT',10);
+
+select ename,salary/12 as Monthly_Salary from Emp_Detail;
+
+select * from Emp_Detail
+where Deptno in(20,40);
+
+select * from Emp_Detail
+ where deptno=30 and salary>1500;
+
+ select * from Emp_Detail where Job not in ('SALESMAN','CLERK');
+
+ select * from Emp_Detail where Ename in('Ankit Kumar','Deepak Kumar','Chandan Kumar','Muskan Sagar');
+
+ select * from Emp_Detail where ename like'S____';
+
+ select * from Emp_Detail where ename like'%R';
+
+ select ename,(salary+nvl(comm,0)) as TotalSsalary from Emp_Detail;
+
+
+
+
+ select * from Emp_Detail  where Salary> any(select salary from Emp_Detail where salary<3000);
+
+ select * from Emp_Detail  where Salary> all(select salary from Emp_Detail where salary<3000);
